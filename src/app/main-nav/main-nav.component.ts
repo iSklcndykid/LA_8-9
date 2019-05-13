@@ -19,10 +19,11 @@ export class MainNavComponent implements OnInit {
   ngOnInit() {
   }
 
-  showAbout() {
-    this.toastService.showToast('success', 7000, 'This application was created by Lucas Phan (C).');
-    this.http.test();
-  }
+  // showAbout() {
+  //   this.toastService.showToast('success', 7000, 'This application was created by Lucas Phan (C).');
+  //   this.http.test();
+  // }
+
   async logout() {
     const resp = await this.http.logout();
     if (resp.statusCode === 200) {

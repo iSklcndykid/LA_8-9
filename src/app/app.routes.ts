@@ -8,7 +8,7 @@ const appRoutes: Routes = [
     path: '',
     component: HomeComponent
   }, {
-    path: 'login',
+    path: 'mainlogin',
     component: LoginComponent
   }, {
     path: '**',

@@ -1,0 +1,519 @@
+warning: LF will be replaced by CRLF in src/app/app.routes.ts.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/app/cart/cart.component.html.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/app/cart/cart.component.ts.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/app/home/home.component.ts.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/app/login/login.component.html.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/app/login/login.component.ts.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/app/main-nav/main-nav.component.html.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/app/main-nav/main-nav.component.ts.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/app/toast/toast/toast.component.ts.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/environments/environment.prod.ts.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/environments/environment.ts.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/shared-service/http.service.ts.
+The file will have its original line endings in your working directory
+[1mdiff --git a/src/app/app.routes.ts b/src/app/app.routes.ts[m
+[1mindex 89770d8..f10481d 100644[m
+[1m--- a/src/app/app.routes.ts[m
+[1m+++ b/src/app/app.routes.ts[m
+[36m@@ -8,7 +8,7 @@[m [mconst appRoutes: Routes = [[m
+     path: '',[m
+     component: HomeComponent[m
+   }, {[m
+[31m-    path: 'login',[m
+[32m+[m[32m    path: 'mainlogin',[m
+     component: LoginComponent[m
+   }, {[m
+     path: '**',[m
+[1mdiff --git a/src/app/cart/cart.component.html b/src/app/cart/cart.component.html[m
+[1mindex 2d1ccc3..3a42d41 100644[m
+[1m--- a/src/app/cart/cart.component.html[m
+[1m+++ b/src/app/cart/cart.component.html[m
+[36m@@ -1,12 +1,12 @@[m
+ <nav class="navbar navbar-expand-lg navbar-dark bg-primary main-nav">[m
+[31m-  [m
+[32m+[m
+ </nav>[m
+ [m
+ <ul class="nav justify-content-end nav-action-container">[m
+   <li class="nav-item">[m
+     <button mat-raised-button color="primary" (click)="createCar()">Add New Car</button>[m
+   </li>[m
+[31m-  <li class="nav-item">[m
+[32m+[m[32m  <!-- <li class="nav-item">[m
+     <button mat-raised-button color="primary">Add Bike Model 1</button>[m
+   </li>[m
+   <li class="nav-item">[m
+[36m@@ -14,41 +14,55 @@[m
+   </li>[m
+   <li class="nav-item">[m
+     <button mat-raised-button color="primary">Add Bike Model 3</button>[m
+[31m-    </li>[m
+[31m-  <li class="nav-item">[m
+[32m+[m[32m  </li> -->[m
+[32m+[m[32m  <!-- <li class="nav-item">[m
+     <button mat-raised-button color="primary">Checkout</button>[m
+[31m-  </li>[m
+[32m+[m[32m  </li> -->[m
+ </ul>[m
+ [m
+ <div class="contact-grid">[m
+   <div class="gallery-grid">[m
+[31m-    <mat-card class="example-card" *ngFor="let bike of bikes; let i = index">[m
+[32m+[m[32m    <mat-card class="example-card" *ngFor="let car of cars; let i = index">[m
+       <mat-card-content>[m
+[31m-        <img class="cover" alt="bike">[m
+[32m+[m[32m        <img class="cover" [src]="car.image_url" alt="bike">[m
+[32m+[m[32m        <p>[m
+[32m+[m[32m          <label for="id">Image Url:</label>[m
+[32m+[m[32m          <input [(ngModel)]="car.image_url" type="text" class="form-control" placeholder="Image" aria-label="Image">[m
+[32m+[m[32m        </p>[m
+         <p>[m
+           <label for="id">ID:</label>[m
+[31m-          <input disabled type="text" class="form-control" placeholder="ID" aria-label="ID">[m
+[31m-        </p>  [m
+[32m+[m[32m          <input [(ngModel)]="car.id" disabled type="text" class="form-control" placeholder="ID" aria-label="ID">[m
+[32m+[m[32m        </p>[m
+         <p>[m
+[31m-          <label for="description">Description:</label>[m
+[31m-          <input type="text" class="form-control" placeholder="Description" aria-label="desc"[m
+[32m+[m[32m          <label for="price">Make</label>[m
+[32m+[m[32m          <input [(ngModel)]="car.make" type="text" class="form-control" placeholder="Make" aria-label="price"[m
+[32m+[m[32m            aria-describedby="basic-addon1">[m
+[32m+[m[32m        </p>[m
+[32m+[m[32m        <p>[m
+[32m+[m[32m          <label for="price">Model</label>[m
+[32m+[m[32m          <input [(ngModel)]="car.model" type="text" class="form-control" placeholder="Model" aria-label="price"[m
+             aria-describedby="basic-addon1">[m
+         </p>[m
+[32m+[m[32m        <p>[m
+[32m+[m[32m          <label for="description">Description:</label>[m
+[32m+[m[32m          <input [(ngModel)]="car.description" type="text" class="form-control" placeholder="Description"[m
+[32m+[m[32m            aria-label="desc" aria-describedby="basic-addon1">[m
+[32m+[m[32m        </p>[m
+         <p>[m
+           <label for="price">Price</label>[m
+[31m-          <input type="text" class="form-control" placeholder="Price" aria-label="price"[m
+[32m+[m[32m          <input [(ngModel)]="car.price" type="text" class="form-control" placeholder="Price" aria-label="price"[m
+             aria-describedby="basic-addon1">[m
+         </p>[m
+         <p>[m
+           <label for="quantity">Quantity</label>[m
+[31m-          <input type="text" class="form-control" placeholder="Quantity" aria-label="qty"[m
+[32m+[m[32m          <input [(ngModel)]="car.quantity" type="text" class="form-control" placeholder="Quantity" aria-label="qty"[m
+             aria-describedby="basic-addon1">[m
+         </p>[m
+       </mat-card-content>[m
+       <mat-card-actions>[m
+         <div class="btn-group pull-right">[m
+[31m-          <button mat-raised-button color="primary" class="pull-right" (click)="updateCar(car)">Save For Later</button>[m
+[31m-          <button mat-raised-button color="warn" >Remove From Cart</button>[m
+[32m+[m[32m          <button mat-raised-button color="primary" class="pull-right" (click)="updateCar(car)">Save</button>[m
+[32m+[m[32m          <button mat-raised-button color="warn" (click)="removeCar(car, i)">Delete</button>[m
+         </div>[m
+       </mat-card-actions>[m
+     </mat-card>[m
+[1mdiff --git a/src/app/cart/cart.component.ts b/src/app/cart/cart.component.ts[m
+[1mindex 05c798f..638b048 100644[m
+[1m--- a/src/app/cart/cart.component.ts[m
+[1m+++ b/src/app/cart/cart.component.ts[m
+[36m@@ -4,7 +4,7 @@[m [mimport { Router } from '@angular/router';[m
+ import { ToastService } from '../toast/toast.service';[m
+ import { HttpService } from '../../shared-service/http.service';[m
+ [m
+[31m-export interface IBike {[m
+[32m+[m[32mexport interface ICar {[m
+   id?: number;[m
+   image: string;[m
+   price: number;[m
+[36m@@ -19,9 +19,9 @@[m [mexport interface IBike {[m
+ })[m
+ export class CartComponent implements OnInit {[m
+ [m
+[31m-  bikes: Array<IBike> = [];[m
+[32m+[m[32m  cars: Array<ICar> = [];[m
+   myName = '';[m
+[31m-  cars = [];[m
+[32m+[m[32m  car = [];[m
+   constructor([m
+     private activatedRoute: ActivatedRoute,[m
+     private router: Router,[m
+[36m@@ -31,17 +31,17 @@[m [mexport class CartComponent implements OnInit {[m
+ [m
+   async ngOnInit() {[m
+     await this.refresh();[m
+[31m-    //  this.updateCar('card/id/1', {make: 'ford', model: 'Fiesta'});[m
+[31m-    // this.createCar ('car', {make: 'Tesla', model: 'X'});[m
+[32m+[m[32m  }[m
+ [m
+[32m+[m[32m  async refresh() {[m
+[32m+[m[32m    this.cars = await this.getCars('car');[m
+   }[m
+[31m-  async refresh() { this.cars = await this.getCars('car'); }[m
+ [m
+   async getCars(path: string) {[m
+     const resp = await this.http.get(path);[m
+[31m-    console.log('resp from GetCaRz', resp);[m
+     return resp;[m
+   }[m
+[32m+[m
+   async createCar() {[m
+     const car = {[m
+       make: null,[m
+[36m@@ -49,27 +49,31 @@[m [mexport class CartComponent implements OnInit {[m
+       year: null[m
+     };[m
+     const resp = await this.http.post('car', car);[m
+[31m-    console.log('resp from Createeee', resp);[m
+     if (resp) {[m
+[31m-      // this.refresh();[m
+       this.cars.unshift(resp);[m
+[31m-    } else { this.toastService.showToast('danger', 3000, 'Car create failed!');}[m
+[31m-      return resp;[m
+[32m+[m[32m    } else {[m
+[32m+[m[32m      this.toastService.showToast('danger', 3000, 'Car create failed!');[m
+[32m+[m[32m    }[m
+[32m+[m[32m    return resp;[m
+   }[m
+[32m+[m
+   async updateCar(car: any) {[m
+[31m-    const resp = await this.http.put('car/id${car.id}', car);[m
+[31m-    console.log('resp from Puuuutttt', car);[m
+[32m+[m[32m    const resp = await this.http.put(`car/id/${car.id}`, car);[m
+     if (resp) {[m
+       this.toastService.showToast('success', 3000, 'Car updated successfully!');[m
+     }[m
+     return resp;[m
+[31m-[m
+   }[m
+[31m-  async removerCar(car: any, index: number) {[m
+[31m-    const resp = await this.http.delete('car/id${car.id}');[m
+[31m-    console.log('resp from Deleteeee', car);[m
+[32m+[m
+[32m+[m[32m  async removeCar(car: any, index: number) {[m
+[32m+[m[32m    const resp = await this.http.delete(`car/id/${car.id}`);[m
+     if (resp) {[m
+[32m+[m[32m      this.refresh();[m
+[32m+[m[32m    } else {[m
+       this.toastService.showToast('danger', 3000, 'Delete car failed!');[m
+[32m+[m
+     }[m
+[31m-    return resp;[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m
+ }[m
+[1mdiff --git a/src/app/home/home.component.ts b/src/app/home/home.component.ts[m
+[1mindex c4d54b9..71d9bfc 100644[m
+[1m--- a/src/app/home/home.component.ts[m
+[1m+++ b/src/app/home/home.component.ts[m
+[36m@@ -1,5 +1,5 @@[m
+ import { Component, OnInit } from '@angular/core';[m
+[31m-import { ActivatedRoute, Router} from '@angular/router';[m
+[32m+[m[32mimport { ActivatedRoute, Router } from '@angular/router';[m
+ [m
+ @Component({[m
+   selector: 'app-home',[m
+[36m@@ -8,13 +8,20 @@[m [mimport { ActivatedRoute, Router} from '@angular/router';[m
+ })[m
+ export class HomeComponent implements OnInit {[m
+   loggedIn = false;[m
+[31m-[m
+   constructor([m
+[31m-    private router: Router,[m
+[31m-    private activatedRoute: ActivatedRoute[m
+[32m+[m[32m    private activatedRoute: ActivatedRoute,[m
+[32m+[m[32m    private router: Router[m
+   ) { }[m
+ [m
+   ngOnInit() {[m
+[32m+[m[32m    const token = localStorage.getItem('id_token');[m
+[32m+[m[32m    if (token == null) {[m
+[32m+[m[32m      this.loggedIn = false;[m
+[32m+[m[32m      this.router.navigate(['login']);[m
+[32m+[m[32m    } else {[m
+[32m+[m[32m      this.loggedIn = true;[m
+[32m+[m[32m    }[m
+[32m+[m
+   }[m
+ [m
+ }[m
+[1mdiff --git a/src/app/login/login.component.html b/src/app/login/login.component.html[m
+[1mindex 0077afe..94cc0bf 100644[m
+[1m--- a/src/app/login/login.component.html[m
+[1m+++ b/src/app/login/login.component.html[m
+[36m@@ -5,18 +5,18 @@[m
+       <img src="../../assets/logo.jpeg" alt="logo">[m
+     </div>      [m
+     <div class="form-group">[m
+[31m-      <label for="exampleInputEmail1">User Name</label>[m
+[31m-      <input [ngModel]="user.email" name="email" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="User Name">[m
+[32m+[m[32m      <label for="exampleInputEmail1">Email</label>[m
+[32m+[m[32m      <input [(ngModel)]="user.email" name="email" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="User Name">[m
+     </div>[m
+     <div class="form-group">[m
+       <label for="exampleInputPassword1">Password</label>[m
+[31m-      <input [ngModel]="user.password" name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">[m
+[32m+[m[32m      <input [(ngModel)]="user.password" name="password" type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">[m
+     </div>[m
+     <div class="form-group form-check">[m
+       <input type="checkbox" class="form-check-input" id="exampleCheck1">[m
+       <label class="form-check-label" for="exampleCheck1">Remember Me?</label>[m
+     </div>[m
+[31m-    <button mat-raised-button color="primary" click="login(user)">Login</button>[m
+[32m+[m[32m    <button mat-raised-button color="primary" (click)="login(user)">Login</button>[m
+   </form>[m
+   <div></div>[m
+ </div>[m
+\ No newline at end of file[m
+[1mdiff --git a/src/app/login/login.component.ts b/src/app/login/login.component.ts[m
+[1mindex 4014c77..0961817 100644[m
+[1m--- a/src/app/login/login.component.ts[m
+[1m+++ b/src/app/login/login.component.ts[m
+[36m@@ -2,9 +2,10 @@[m [mimport { Component, OnInit } from '@angular/core';[m
+ import { Router } from '@angular/router';[m
+ import { ToastService } from '../toast/toast.service';[m
+ import { HttpService } from '../../shared-service/http.service';[m
+[32m+[m
+ export interface IUser {[m
+   id?: number;[m
+[31m-  username: string;[m
+[32m+[m[32m  email: string;[m
+   password: string;[m
+ }[m
+ @Component({[m
+[36m@@ -13,10 +14,9 @@[m [mexport interface IUser {[m
+   styleUrls: ['./login.component.css'][m
+ })[m
+ export class LoginComponent implements OnInit {[m
+[32m+[m[32m  user: IUser = { email: null, password: null };[m
+   currentUser = {};[m
+   loggedIn = false;[m
+[31m-  someVar: boolean;[m
+[31m-  user: IUser = { username: null, password: null };[m
+   constructor([m
+     private router: Router,[m
+     private toastService: ToastService,[m
+[36m@@ -25,30 +25,25 @@[m [mexport class LoginComponent implements OnInit {[m
+   }[m
+ [m
+   ngOnInit() {[m
+[31m-    const token = localStorage.getItem('id_token')[m
+[31m-    console.log('from login token:', token);[m
+[31m-    if (token == null) {[m
+[31m-      this.loggedIn = false;[m
+[32m+[m[32m    const token = localStorage.getItem('id_token');[m
+[32m+[m[32m    if (token != null) {[m
+[32m+[m[32m      this.loggedIn = true;[m
+       this.router.navigate(['']);[m
+[31m-    } else { this.loggedIn = true; }[m
+[32m+[m[32m    } else {[m
+[32m+[m[32m      this.loggedIn = false;[m
+[32m+[m[32m    }[m
+   }[m
+[31m-  async login(user: IUser) {[m
+[31m-    console.log('from login', user);[m
+[31m-    // const payload = {[m
+[31m-    //   email: 'joe@bob.com',[m
+[31m-    //   password: 'yolo'[m
+[31m-    // };[m
+ [m
+[32m+[m
+[32m+[m[32m  async login(user: IUser) {[m
+     const resp: any = await this.http.post('user/login', user);[m
+[31m-    console.log('resp from login()', resp);[m
+     if (resp && resp.token) {[m
+       localStorage.setItem('id_token', resp.token);[m
+[31m-      this.toastService.showToast('success', 3000, 'Login Succes.');[m
+[32m+[m[32m      this.toastService.showToast('success', 3000, 'Login Success.');[m
+       this.router.navigate(['']);[m
+     } else {[m
+       this.toastService.showToast('danger', 3000, 'Login Failed.');[m
+     }[m
+[31m-[m
+   }[m
+ [m
+ }[m
+[1mdiff --git a/src/app/main-nav/main-nav.component.html b/src/app/main-nav/main-nav.component.html[m
+[1mindex 8816b08..c7ef010 100644[m
+[1m--- a/src/app/main-nav/main-nav.component.html[m
+[1m+++ b/src/app/main-nav/main-nav.component.html[m
+[36m@@ -18,7 +18,7 @@[m
+           </li>[m
+         </ul>[m
+         <div class="btn-group">[m
+[31m-          <button mat-raised-button color="accent" *ngIf="!currentUser">Logout</button>[m
+[32m+[m[32m          <button mat-raised-button color="accent" *ngIf="!currentUser" (click)="logout()">Logout</button>[m
+         </div>[m
+       </div>[m
+     </nav>[m
+[1mdiff --git a/src/app/main-nav/main-nav.component.ts b/src/app/main-nav/main-nav.component.ts[m
+[1mindex b177d89..673b9e7 100644[m
+[1m--- a/src/app/main-nav/main-nav.component.ts[m
+[1m+++ b/src/app/main-nav/main-nav.component.ts[m
+[36m@@ -19,10 +19,11 @@[m [mexport class MainNavComponent implements OnInit {[m
+   ngOnInit() {[m
+   }[m
+ [m
+[31m-  showAbout() {[m
+[31m-    this.toastService.showToast('success', 7000, 'This application was created by Lucas Phan (C).');[m
+[31m-    this.http.test();[m
+[31m-  }[m
+[32m+[m[32m  // showAbout() {[m
+[32m+[m[32m  //   this.toastService.showToast('success', 7000, 'This application was created by Lucas Phan (C).');[m
+[32m+[m[32m  //   this.http.test();[m
+[32m+[m[32m  // }[m
+[32m+[m
+   async logout() {[m
+     const resp = await this.http.logout();[m
+     if (resp.statusCode === 200) {[m
+[1mdiff --git a/src/app/toast/toast/toast.component.ts b/src/app/toast/toast/toast.component.ts[m
+[1mindex bc8d9e7..fb781f0 100644[m
+[1m--- a/src/app/toast/toast/toast.component.ts[m
+[1m+++ b/src/app/toast/toast/toast.component.ts[m
+[36m@@ -14,14 +14,12 @@[m [mexport class ToastComponent implements OnInit {[m
+   constructor(private toastService: ToastService) { }[m
+ [m
+   ngOnInit() {[m
+[31m-    console.log('this.dismissible.', this.dismissible);[m
+     this.toastService.toastChanged.subscribe((alerts) => {[m
+       this.alerts.push(alerts);[m
+     });[m
+   }[m
+ [m
+   onClosed(e) {[m
+[31m-    console.log('from onClosed fired..... e', e);[m
+   }[m
+ [m
+ }[m
+[1mdiff --git a/src/environments/environment.prod.ts b/src/environments/environment.prod.ts[m
+[1mindex 14d4733..b9ef7c1 100644[m
+[1m--- a/src/environments/environment.prod.ts[m
+[1m+++ b/src/environments/environment.prod.ts[m
+[36m@@ -1,4 +1,4 @@[m
+ export const environment = {[m
+   production: true,[m
+[31m-  apiURL: 'http://192.268.65.3:3002/api/v1'[m
+[32m+[m[32m  apiURL: 'http://192.268.65.3:3002/api/v1/'[m
+ };[m
+[1mdiff --git a/src/environments/environment.ts b/src/environments/environment.ts[m
+[1mindex 63b66d4..53f534c 100644[m
+[1m--- a/src/environments/environment.ts[m
+[1m+++ b/src/environments/environment.ts[m
+[36m@@ -4,7 +4,7 @@[m
+ [m
+ export const environment = {[m
+   production: false,[m
+[31m-  apiURL: 'http://localhost:3002/api/v1'[m
+[32m+[m[32m  apiURL: 'http://localhost:3002/api/v1/'[m
+ };[m
+ [m
+ /*[m
+[1mdiff --git a/src/shared-service/http.service.ts b/src/shared-service/http.service.ts[m
+[1mindex 04de03a..d959d02 100644[m
+[1m--- a/src/shared-service/http.service.ts[m
+[1m+++ b/src/shared-service/http.service.ts[m
+[36m@@ -1,60 +1,57 @@[m
+ import { Injectable } from '@angular/core';[m
+ import { Http, Headers } from '@angular/http';[m
+ import { environment } from '../environments/environment';[m
+[32m+[m
+ @Injectable({[m
+   providedIn: 'root'[m
+ })[m
+ export class HttpService {[m
+[31m-  apiURL = ''; // http://localhost:3002/api/v1[m
+[32m+[m[32m  apiURL = ''; // http://localhost:3002/api/v1/[m
+   constructor([m
+     private http: Http[m
+   ) {[m
+     this.apiURL = environment.apiURL;[m
+   }[m
+[31m-  test() {[m
+[31m-    console.log('test...');[m
+[31m-  }[m
+[31m-  // get('car);[m
+[32m+[m
+[32m+[m[32m  // get('car');[m
+   async get(path: string) {[m
+     const resp = await this.http.get(this.apiURL + path, this.headers).toPromise();[m
+[31m-    console.log('resp from http service get() resp:', resp);[m
+     return resp.json();[m
+   }[m
+[31m-  // post('car', {make: Nissan, model; 350z});[m
+[32m+[m
+[32m+[m[32m  // post('car', { make: 'Nissan', model: '350z'});[m
+   async post(path: string, payload: any) {[m
+     const resp = await this.http.post(this.apiURL + path, payload, this.headers).toPromise();[m
+[31m-    console.log('froml http service...', resp.json());[m
+     return resp.json();[m
+[32m+[m[32m  }[m
+ [m
+[31m-}[m
+[31m-async put(path: string, payload: any) {[m
+[31m-  const resp = await this.http.put(this.apiURL + path, payload, this.headers).toPromise();[m
+[31m-  console.log('froml http service put', resp.json());[m
+[31m-  return resp.json();[m
+[31m-}[m
+[31m-async delete(path: string) {[m
+[31m-  const resp = await this.http.delete(this.apiURL + path, this.headers).toPromise();[m
+[31m-  console.log('froml http service delete', resp.json());[m
+[31m-  return resp.json();[m
+[31m-}[m
+[31m-async logout() {[m
+[31m-  const resp.any = await this.http.get(this.apiURL + 'user/logout').toPromise();[m
+[31m-  console.log('from http service loggggouttt()', resp.json());[m
+[31m-  if(resp.statusCode === 200) {[m
+[31m-    localStorage.removeItem('id_token');[m
+[32m+[m[32m  // put('car/id/1', { make: 'Toyota', model: 'Celica});[m
+[32m+[m[32m  async put(path: string, payload: any) {[m
+[32m+[m[32m    const resp = await this.http.put(this.apiURL + path, payload, this.headers).toPromise();[m
+[32m+[m[32m    return resp.json();[m
+   }[m
+[31m-  return resp.json();[m
+[31m-}[m
+ [m
+[31m-get headers() {[m
+[31m-  const token = localStorage.getItem('id_token') || null;[m
+[31m-  const headers = new Headers({ 'Content-Type': 'application/json' });[m
+[31m-  if (token) {[m
+[31m-    headers.append('Authorization', 'Bearer ' + token);[m
+[32m+[m[32m  // delete('car/id/1');[m
+[32m+[m[32m  async delete(path: string) {[m
+[32m+[m[32m    const resp = await this.http.delete(this.apiURL + path, this.headers).toPromise();[m
+[32m+[m[32m    return resp.json();[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  // logout();[m
+[32m+[m[32m  async logout() {[m
+[32m+[m[32m    const resp: any = await this.http.get(this.apiURL + 'user/logout', this.headers).toPromise();[m
+[32m+[m[32m    return resp.json();[m
+[32m+[m[32m  }[m
+[32m+[m
+[32m+[m[32m  get headers() {[m
+[32m+[m[32m    const token = localStorage.getItem('id_token') || null;[m
+[32m+[m[32m    const headers = new Headers({ 'Content-Type': 'application/json' });[m
+[32m+[m[32m    if (token) {[m
+[32m+[m[32m      headers.append('Authorization', 'Bearer ' + token);[m
+[32m+[m[32m    }[m
+[32m+[m[32m    return {[m
+[32m+[m[32m      headers,[m
+[32m+[m[32m      withCredentials: true[m
+[32m+[m[32m    };[m
+   }[m
+[31m-  return {[m
+[31m-    headers,[m
+[31m-    withCredentials: true[m
+[31m-  };[m
+[31m-}[m
+ }[m
